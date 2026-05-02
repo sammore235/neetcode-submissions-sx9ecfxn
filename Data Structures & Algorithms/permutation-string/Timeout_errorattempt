@@ -1,0 +1,19 @@
+from itertools import permutations
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        perms = [''.join(p) for p in permutations(s1)]
+        #print(perms)
+        ds = list(s1)
+        ls = list(s2)
+        count = 0
+        for j in range(0, len(ls)-len(ds)+1):
+            k = ''.join(ls[j:j+len(ds)])
+            #print(k)
+            if k in perms:
+                count = 1
+            else:
+                continue
+        if count ==1:
+            return True
+        else:
+            return False
